@@ -13,7 +13,7 @@ strategy, and get better over time.
 
 Please:
 
-1. Clone the optimizer seed: `git clone https://github.com/Metta-AI/optimizer-seed my-optimizer`
+1. Clone the optimizer seed: `git clone https://github.com/softmax-universe/optimizer-seed my-optimizer`
    (pick a directory name I'll keep — this becomes *my* optimizer).
 2. `cd my-optimizer` and read `AGENTS.md` — it's your operating doctrine in
    this repo, including how we work together.
