@@ -7,7 +7,7 @@ Prove checkout and research-state persistence across restart before starting an 
 
 ## Active games
 
-GOTA setup pending. Policy repository: https://github.com/Metta-AI/rohit-gota-policy.
+GOTA setup pending. Policy repository: https://github.com/softmax-universe/rohit-gota-policy.
 GOTA binding installed in games/gota. League identity, current game revision and live execution remain unverified.
 
 ## Open threads

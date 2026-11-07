@@ -13,9 +13,9 @@ XP minus a fixed time penalty used different scoring.
 
 | Repository | Purpose | Required? |
 | --- | --- | --- |
-| [Metta-AI/polyworld](https://github.com/Metta-AI/polyworld) | Nim runner and game source | Yes |
-| [Metta-AI/polyworld_art](https://github.com/Metta-AI/polyworld_art) | Report fonts, logo, icons, and game assets | Yes |
-| [Metta-AI/polyworld-buff](https://github.com/Metta-AI/polyworld-buff) | Published GotA standings | Only for publishing |
+| [softmax-universe/polyworld](https://github.com/softmax-universe/polyworld) | Nim runner and game source | Yes |
+| [softmax-universe/polyworld_art](https://github.com/softmax-universe/polyworld_art) | Report fonts, logo, icons, and game assets | Yes |
+| [softmax-universe/polyworld-buff](https://github.com/softmax-universe/polyworld-buff) | Published GotA standings | Only for publishing |
 
 Use a GitHub account that can clone these repositories and a Softmax account
 that can read the GotA league and submit experience requests. Hosted games use
@@ -74,8 +74,8 @@ Run this block from the directory where you want that workspace:
 mkdir gota-workspace
 cd gota-workspace
 git lfs install
-git clone https://github.com/Metta-AI/polyworld.git
-git clone https://github.com/Metta-AI/polyworld_art.git
+git clone https://github.com/softmax-universe/polyworld.git
+git clone https://github.com/softmax-universe/polyworld_art.git
 git -C polyworld_art lfs pull
 nimby create
 nimby install polyworld/polyworld.nimble
@@ -101,7 +101,7 @@ softmax status
 ```
 
 Complete the browser login with the account that will run the tournament.
-The [Softmax CLI](https://github.com/Metta-AI/metta/tree/main/packages/softmax-cli)
+The [Softmax CLI](https://github.com/softmax-universe/softmax/tree/main/workspaces/softmax/cli)
 stores credentials in `~/.softmax/credentials.yaml`. The Nim runner reads that
 file directly; it does not invoke Python or the CLI to run games. Each operator
 should log in themselves rather than copy someone else's credential file.
@@ -111,7 +111,7 @@ should log in themselves rather than copy someone else's credential file.
 Build the browser script, runner, and replay statistics inspector together:
 
 ```sh
-nim r -o:tmp/gota/tools/build_tournament examples/gods_of_the_arena/tools/build_tournament.nim
+nim r -o:tmp/gota/tools/build_tournament games/gods_of_the_arena/tools/build_tournament.nim
 tmp/gota/tools/tournament --help
 ```
 
@@ -242,7 +242,7 @@ Abandoned `.tmp` files are ignored. Summaries, CSV exports, and HTML are derived
 Clone the site beside the other repositories, from the `polyworld` root:
 
 ```sh
-git clone https://github.com/Metta-AI/polyworld-buff.git ../polyworld-buff
+git clone https://github.com/softmax-universe/polyworld-buff.git ../polyworld-buff
 ```
 
 If that checkout already exists, use it instead of cloning again. Before
@@ -262,7 +262,7 @@ git -C ../polyworld-buff push
 ```
 
 Review the generated changes before committing. GitHub Pages publishes the
-latest report at [GotA standings](https://metta-ai.github.io/polyworld-buff/GOTA/standings/).
+latest report at [GotA standings](https://softmax-universe.github.io/polyworld-buff/GOTA/standings/).
 This replaces the site's latest standings; the run folder preserves the local
 tournament. The runner updates local files and does not commit or push them.
 
@@ -371,8 +371,8 @@ The report distinguishes completed games from those included in standings.
 Build first, then run the Nim checks and fixture tests:
 
 ```sh
-nim check examples/gods_of_the_arena/tools/test_tournament.nim
-nim r -o:tmp/gota/tools/test_tournament examples/gods_of_the_arena/tools/test_tournament.nim
+nim check games/gods_of_the_arena/tools/test_tournament.nim
+nim r -o:tmp/gota/tools/test_tournament games/gods_of_the_arena/tools/test_tournament.nim
 ```
 
 The tests include scoring, balanced sampling, ties, stability resets, failed-game

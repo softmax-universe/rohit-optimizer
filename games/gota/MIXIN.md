@@ -1,7 +1,7 @@
 # GOTA binding
 
 Game: Gods of the Arena, Polyworld game-hosted BASIC policies. Resolve league and revision live; no hardcoded league ID.
-Mechanics source: https://github.com/Metta-AI/polyworld/tree/main/coworld/gota and the live participation guide.
+Mechanics source: https://github.com/softmax-universe/polyworld/tree/main/coworld/gota and the live participation guide.
 
 | Binding | Implementation |
 |---|---|

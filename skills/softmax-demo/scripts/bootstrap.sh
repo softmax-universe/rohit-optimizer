@@ -4,16 +4,23 @@ umask 077
 : "${SOFTMAX_RESEARCH_DIR:=$HOME/workspaces/rohit-optimizer}"
 : "${SOFTMAX_POLICY_DIR:=$HOME/workspaces/rohit-gota-policy}"
 : "${SOFTMAX_RESEARCH_REF:=main}"
-: "${SOFTMAX_RESEARCH_REPO:=https://github.com/Metta-AI/rohit-optimizer.git}"
+: "${SOFTMAX_RESEARCH_REPO:=https://github.com/softmax-universe/rohit-optimizer.git}"
 : "${SOFTMAX_POLICY_REPO:?The provisioner must supply the user-owned policy repository URL}"
 command -v git >/dev/null
 command -v uv >/dev/null
+canonical_origin() {
+  local origin="${1%.git}"
+  case "$origin" in
+    https://github.com/Metta-AI/rohit-optimizer) origin="https://github.com/softmax-universe/rohit-optimizer" ;;
+  esac
+  printf '%s' "$origin"
+}
 clone_workspace() {
   local remote="$1" destination="$2" branch="$3"
   if [ -e "$destination" ]; then
     local configured_remote
     configured_remote="$(git -C "$destination" config --get remote.origin.url)"
-    test "${configured_remote%.git}" = "${remote%.git}"
+    test "$(canonical_origin "$configured_remote")" = "$(canonical_origin "$remote")"
     git -C "$destination" status --short
   else
     mkdir -p "$(dirname "$destination")"

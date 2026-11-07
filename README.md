@@ -29,7 +29,7 @@ New user? Paste `docs/starter-prompt.md` into your coding agent and let it
 drive. By hand:
 
 ```
-git clone https://github.com/Metta-AI/optimizer-seed my-optimizer && cd my-optimizer
+git clone https://github.com/softmax-universe/optimizer-seed my-optimizer && cd my-optimizer
 softmax login                                  # authenticate with the platform
 # wire your agent runtime (ready-made configs for common harnesses):
 harness/README.md
